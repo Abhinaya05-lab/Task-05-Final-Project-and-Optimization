@@ -1,0 +1,780 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* CSS Variables for easier theme management */
+:root {
+    --primary-bg-color: #0d1a2f;
+    --secondary-bg-color: #12233f; /* Slightly different dark background for projects/cards */
+    --accent-color: #00bcd4;
+    --text-color: #e0e0e0;
+    --light-text-color: #fff;
+    --muted-text-color: #cccccc;
+    --dark-text-on-accent: #0d1a2f; /* For text on accent backgrounds */
+    --border-color-subtle: #3d506d;
+    --input-bg-color: #21375a;
+
+    /* Common Padding */
+    --section-padding-desktop: 80px 40px;
+    --section-padding-mobile: 60px 20px;
+}
+
+/* Basic Reset & Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Universal Container Styling */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Main Content Area - Padding for fixed navbar */
+main {
+    padding-top: 80px; /* Adjust this value based on your actual navbar height */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: var(--primary-bg-color);
+    color: var(--light-text-color);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .logo {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.navbar nav ul {
+    display: flex;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    font-size: 1.1em;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Hero Section Styling */
+.hero-section {
+    min-height: 55vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primary-bg-color);
+    padding: 0 40px;
+    margin-bottom: 0;
+    background-image: linear-gradient(to right, rgba(13, 26, 47, 0.9), rgba(13, 26, 47, 0.7));
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    color: var(--light-text-color);
+}
+
+.hero-content .subtitle {
+    font-size: 2em;
+    color: var(--accent-color);
+    margin-bottom: 25px;
+}
+
+.hero-content .description {
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    color: var(--muted-text-color);
+}
+
+/* Buttons Styling */
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn.primary {
+    background-color: var(--accent-color);
+    color: var(--dark-text-on-accent);
+}
+
+.btn.primary:hover {
+    background-color: #00a0b2;
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+.btn.secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--dark-text-on-accent);
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: var(--primary-bg-color);
+    padding: var(--section-padding-desktop);
+    color: var(--text-color);
+    text-align: center;
+}
+
+.about-section .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-title { /* Consolidated section title style */
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--light-text-color);
+}
+
+.section-subtitle { /* Consolidated section subtitle style */
+    font-size: 1.2em;
+    color: var(--accent-color);
+    margin-bottom: 40px;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+    text-align: left;
+}
+
+.about-image {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-image:hover {
+    transform: scale(1.05);
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--muted-text-color);
+    margin-bottom: 30px;
+}
+
+.about-section .btn {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+/* Skills Section Styling */
+.skills-section {
+    background-color: var(--primary-bg-color);
+    padding: var(--section-padding-desktop);
+    text-align: center;
+    color: var(--text-color);
+}
+
+.skills-section .section-title {
+    margin-bottom: 50px;
+}
+
+.skills-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.technical-skills,
+.professional-skills {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    text-align: left;
+}
+
+.skills-subtitle {
+    font-size: 1.8em;
+    color: var(--light-text-color);
+    margin-bottom: 30px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.skills-subtitle::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60%;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* Technical Skills (Progress Bars) */
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.skill-percentage {
+    color: var(--accent-color);
+}
+
+.progress-bar {
+    background-color: var(--input-bg-color);
+    height: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background-color: var(--accent-color);
+    height: 100%;
+    border-radius: 5px;
+    transition: width 1s ease-in-out;
+}
+
+/* Professional Skills (Circular Progress) */
+.skill-circles-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.skill-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.progress-ring-bg {
+    stroke: var(--input-bg-color);
+}
+
+.progress-ring-fg {
+    stroke: var(--accent-color);
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+.skill-circle-percentage {
+    position: absolute;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--light-text-color);
+    z-index: 1;
+}
+
+.skill-circle-name {
+    position: absolute;
+    bottom: 15px;
+    font-size: 0.9em;
+    color: var(--muted-text-color);
+    z-index: 1;
+}
+
+/* Projects Section Styling */
+.projects-section {
+    background-color: var(--secondary-bg-color);
+    padding: var(--section-padding-desktop);
+    text-align: center;
+    color: var(--text-color);
+}
+
+.projects-section .section-title {
+    margin-bottom: 50px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: var(--primary-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.project-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.project-info {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-title {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.project-description {
+    font-size: 1em;
+    line-height: 1.7;
+    color: var(--muted-text-color);
+    margin-bottom: 25px;
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: var(--primary-bg-color);
+    padding: var(--section-padding-desktop);
+    text-align: center;
+    color: var(--text-color);
+}
+
+#contact .contact-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#contact .section-title { /* Adjusted specifically for contact section if needed */
+    font-size: 3em; /* Use common section title but keep size here */
+    margin-bottom: 20px;
+}
+
+#contact .contact-description {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--muted-text-color);
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center;
+    gap: 40px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    flex: none;
+    width: 100%;
+    text-align: left;
+    padding: 30px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-info p {
+    font-size: 1.25em; /* Increased font size for Name, Email, Phone */
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-info p strong {
+    color: var(--accent-color);
+}
+
+.contact-info a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--light-text-color);
+    text-decoration: underline;
+}
+
+.social-icons-contact {
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start; /* Align social icons to the left */
+    gap: 10px;
+}
+
+.social-icons-contact img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+}
+
+.social-icons-contact img:hover {
+    transform: scale(1.1);
+}
+
+/* Contact Form Styling */
+.contact-form {
+    flex: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: var(--secondary-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    padding: 15px;
+    border: 1px solid var(--border-color-subtle);
+    border-radius: 8px;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #a0a0a0;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 188, 212, 0.3);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+    /* Using primary button styles, only overriding size/position */
+    padding: 16px 32px;
+    font-size: 1.2em;
+    align-self: center;
+    width: fit-content;
+    min-width: 180px;
+    /* Other styles inherited from .btn and .btn.primary */
+}
+
+
+/* --- Responsiveness for all Sections --- */
+@media (max-width: 768px) {
+    /* Navbar Responsiveness */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+
+    .navbar nav ul {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .navbar nav ul li {
+        margin: 5px 15px;
+    }
+
+    /* Hero Section Responsiveness */
+    .hero-section {
+        padding-top: 100px;
+        min-height: 90vh;
+        padding: 0 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 3em;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1.6em;
+    }
+
+    .hero-content .description {
+        font-size: 1em;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 80%;
+        font-size: 1.1em;
+    }
+
+    /* About Section Responsiveness */
+    .about-section {
+        padding: var(--section-padding-mobile);
+    }
+
+    .about-section .section-title {
+        font-size: 2.2em;
+    }
+
+    .about-section .section-subtitle {
+        font-size: 1.2em;
+    }
+
+    .about-section .about-description {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image {
+        margin-bottom: 30px;
+        width: 180px;
+        height: 180px;
+    }
+
+    .about-text {
+        text-align: center;
+    }
+
+    .about-section .btn {
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    /* Skills Section Responsiveness */
+    .skills-section {
+        padding: var(--section-padding-mobile);
+    }
+
+    .skills-section .section-title {
+        font-size: 2.2em;
+    }
+
+    .skills-content {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .technical-skills,
+    .professional-skills {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .skills-subtitle {
+        font-size: 1.5em;
+    }
+
+    .skills-subtitle::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .skill-item {
+        max-width: 350px;
+        margin: 0 auto 25px auto;
+    }
+
+    /* Projects Section Responsiveness */
+    .projects-section {
+        padding: var(--section-padding-mobile);
+    }
+
+    .projects-section .section-title {
+        font-size: 2.2em;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-image {
+        height: 200px;
+    }
+
+    .project-title {
+        font-size: 1.5em;
+    }
+
+    .project-description {
+        font-size: 0.9em;
+    }
+
+    /* Contact Section Responsiveness */
+    #contact {
+        padding: var(--section-padding-mobile);
+    }
+
+    #contact .section-title {
+        font-size: 2.5em;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .contact-info p {
+        justify-content: center;
+    }
+
+    .social-icons-contact {
+        justify-content: center;
+    }
+
+    .social-icons-contact img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .contact-form button[type="submit"] {
+        width: 100%;
+        min-width: unset;
+    }
+}
+
+/* Very Small Screen Adjustments */
+@media (max-width: 480px) {
+    .about-section {
+        padding: 60px 15px;
+    }
+    .about-section .section-title {
+        font-size: 2.5em;
+    }
+    .about-section .section-subtitle {
+        font-size: 1em;
+    }
+    .about-image {
+        width: 150px;
+        height: 150px;
+    }
+    /* Further refine other sections for tiny screens if needed */
+}
